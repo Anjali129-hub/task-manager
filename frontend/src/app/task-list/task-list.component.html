@@ -1,0 +1,57 @@
+<div class="task-page-wrapper">
+  <div class="task-content">
+    <h2>My Tasks</h2>
+
+    <div class="add-task-container">
+      <button class="add-task-btn" (click)="navigateToAddTask()">➕ Add Task</button>
+    </div>
+
+    <!-- 🔽 Status filter dropdown -->
+    <div class="filter-container">
+      <label for="statusFilter">Filter by Status:</label>
+      <select id="statusFilter" [(ngModel)]="selectedStatus">
+        <option value="">All</option>
+        <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+      </select>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <div class="task-table-wrapper" *ngIf="tasks?.length; else noTasks">
+      <table class="task-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Deadline</th>
+            <th>Priority</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>
+              <select [value]="task.status" (change)="onStatusChange($event, task)">
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </td>
+            <td>{{ task.deadline | date: 'medium' }}</td>
+            <td>{{ task.priority }}</td>
+            <td>
+              <button class="delete-btn" (click)="deleteTask(task)">🗑 Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ng-template #noTasks>
+      <p class="no-tasks-message">No tasks found. Click "Add Task" to create one.</p>
+    </ng-template>
+  </div>
+</div>

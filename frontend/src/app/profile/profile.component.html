@@ -1,0 +1,11 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+  <div class="bg-white shadow-lg rounded-xl p-6 w-full max-w-md text-center">
+    <h2 class="text-2xl font-bold mb-4">User Profile</h2>
+    <div *ngIf="user">
+      <p><strong>Name:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Role:</strong> {{ user.is_manager ? 'Manager' : 'Employee' }}</p>
+    </div>
+    <a routerLink="/dashboard" class="mt-4 inline-block text-blue-600 underline">Back to Dashboard</a>
+  </div>
+</div>

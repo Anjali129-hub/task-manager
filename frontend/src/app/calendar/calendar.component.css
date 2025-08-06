@@ -1,0 +1,57 @@
+.calendar-page-wrapper {
+  background-image: url('../../assets/images/3d-render-notebook-mock-up-with-clean-blank-design-advertising-3d-illustration-perspective-view.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.calendar-content {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.calendar-header h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #2d2d2d;
+}
+
+.calendar-instructions {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #444;
+}
+
+.calendar-wrapper {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+
+/* Optional: responsive for mobile */
+@media (max-width: 768px) {
+  .calendar-page-wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .calendar-image-side {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .calendar-content {
+    width: 100%;
+  }
+}

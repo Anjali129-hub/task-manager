@@ -1,0 +1,45 @@
+<div class="background-wrapper">
+  <div class="background-overlay"></div>
+
+  <div class="login-container">
+    <h1 class="app-title">Task Manager</h1>
+    <p class="subtitle">Manage tasks efficiently</p>
+    <h2 class="login-title">Login</h2>
+
+    <form (ngSubmit)="login()">
+      <label for="contact">Email or Phone</label>
+      <input
+        type="text"
+        id="contact"
+        [(ngModel)]="contact"
+        name="contact"
+        placeholder="you@example.com or 9876543210"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="********"
+        required
+      />
+
+      <div class="link-row">
+        <a routerLink="/forgot-password">Forgot password?</a>
+      </div>
+
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Logging in...' : 'Login' }}
+      </button>
+    </form>
+
+    <div class="register-text">
+      New here? <a routerLink="/register">Register</a>
+    </div>
+  </div>
+</div>

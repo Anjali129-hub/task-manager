@@ -1,0 +1,56 @@
+<div class="add-task-container">
+  <div class="add-task-wrapper">
+    <h2 class="page-title">➕ Add New Task</h2>
+
+    <form [formGroup]="taskForm" (ngSubmit)="createTask()" class="task-form">
+      <!-- Title -->
+      <div class="form-group">
+        <label for="title">Title <span class="required">*</span></label>
+        <input id="title" type="text" formControlName="title" placeholder="Enter task title" />
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" placeholder="Task details..."></textarea>
+      </div>
+
+      <!-- Deadline -->
+      <div class="form-group">
+        <label for="deadline">Deadline <span class="required">*</span></label>
+        <input id="deadline" type="datetime-local" formControlName="deadline" />
+      </div>
+
+      <!-- Priority -->
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select id="priority" formControlName="priority">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+
+      <!-- Assign To -->
+      <div *ngIf="isManager" class="form-group">
+        <label for="assigned_to">Assign To <span class="required">*</span></label>
+        <select id="assigned_to" formControlName="assigned_to">
+          <option [ngValue]="null">-- Select Employee --</option>
+          <option *ngFor="let user of users" [ngValue]="user.id">
+            {{ user.full_name || user.username }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-msg">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" [disabled]="taskForm.invalid" class="submit-btn">
+        ✅ Create Task
+      </button>
+    </form>
+  </div>
+</div>

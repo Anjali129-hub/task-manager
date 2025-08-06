@@ -1,0 +1,23 @@
+<div class="dashboard-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">TaskPro</div>
+    <nav class="nav-links">
+      <a routerLink="/dashboard"><i class="material-icons">home</i> Home</a>
+      <a routerLink="/task-list"><i class="material-icons">check_circle</i> My Tasks</a>
+      <a routerLink="/calendar"><i class="material-icons">calendar_today</i> Calendar</a>
+      <button (click)="confirmLogout()"><i class="material-icons">logout</i> Logout</button>
+    </nav>
+  </aside>
+
+  <!-- Main Area -->
+  <div class="main-content">
+    <!-- Welcome Text -->
+    <div class="welcome-box">
+      <h1>Welcome, {{ username }} 👋</h1>
+      <p>Role: <strong>{{ role }}</strong></p>
+    </div>
+
+  
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="calendar-page-wrapper">
+  <div class="calendar-content">
+    <div class="calendar-header">
+      <h2>📅 Task Calendar</h2>
+      <p>Today's Date: <strong>{{ today | date: 'fullDate' }}</strong></p>
+    </div>
+
+    <div class="calendar-instructions">
+      <p>You can see task deadlines and events below:</p>
+    </div>
+
+    <div class="calendar-wrapper">
+      <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+  </div>
+</div>
